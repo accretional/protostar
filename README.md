@@ -14,7 +14,8 @@ protostar codeblocks (interpreted as being direct protostar configs), structured
 * protostar-proto - formatting, splitting, creation of constituent .proto files
 * protostar-lang - impl language configuration and settings, client code gen
 * protostar-tests - fuzz, validation, e2e test config/setup
-* LANG-unit (eg go-unit) - go unit test soure code
+* protostar-LANG - language-specific soure code
+* protostar-unit-LANG  language-specific unit test soure code
 * protostar-inits - package level inits
 * protostar-build - booter/loader/main/etc info, Dockerfile info, bufgen/api gateway config stuff
 * protostar-clients - specific client configuration, set client interceptors, etc
