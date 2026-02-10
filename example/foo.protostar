@@ -1,0 +1,61 @@
+Hello and welcome!
+
+# Example of a Possible foo.protostar file
+
+Everything in this file is meant to be interpreted as a potential protostar file implementing/conforming to the structure outlined in the README.md format section.
+
+This is a work in progress. Generally, none of the markdown-level code is considered anything more than context/documentation for the protostar definition. All the actual configs and code live in code blocks like:
+
+```protostar-proto
+
+message Foo {
+  string name = 1;
+}
+
+service FooService {
+  rpc FooCall(Foo) returns(Foo);
+}
+
+```
+
+This gets interpsersed with regular markdown like this, and code implemnting various direct grpc methods or adjacent/supporting code for built/tested grpc services and clients using the protos defines in this .protostar. Generally, for protostar-* code blocks other than protostar-proto, expect the codeblock to essentially be in some .textproto or maybe JSON representation of the equivalent proto for that particular config type. EG
+
+```proto
+
+message ProtostarLang {
+  repeated string languages = 1;
+}
+
+```
+
+(Note, the above is just a regular proto code block, wihch is treated like a comment in protostar.) ProtostarLang actually defines the proto-lang format:
+
+```protostar-lang
+
+languages: go, python
+```
+
+Now that we're expecting go code we could have
+
+```protostar-go
+
+// TODO format this like a real wrapped grpc method
+func (s blah) FooCall(...) {
+  return blah, nil
+}
+
+```
+
+and unit tests
+
+```protostar-unit-go
+func (testing T) MyFooTest(...) {
+  return blah, nil
+}
+```
+
+and so on. Need to flesh out more examples, working impls.
+
+## Why protostar?
+
+Createa self-contained grpc service definition + implementation and build it/test it/run it from a single .protostar input file.
